@@ -1,0 +1,33 @@
+from django.urls import path
+from django.contrib.auth import views as auth
+from core import views as v
+urlpatterns = [
+    path('', v.landing, name='landing'),
+    path('login/', auth.LoginView.as_view(template_name='registration/login.html'), name='login'),
+    path('logout/', auth.LogoutView.as_view(), name='logout'),
+    path('register/', v.register, name='register'),
+    path('home/', v.home, name='home'),
+    path('profile/', v.profile, name='profile'),
+    path('meals/', v.meals, name='meals'),
+    path('meals/<int:pk>/', v.meal_detail, name='meal'),
+    path('meals/<int:pk>/intention/', v.intention, name='intention'),
+    path('surplus/', v.surplus, name='surplus'),
+    path('surplus/<int:pk>/', v.listing_detail, name='listing'),
+    path('surplus/<int:pk>/reserve/', v.reserve, name='reserve'),
+    path('reservations/', v.reservations, name='reservations'),
+    path('reservations/<int:pk>/', v.reservation_detail, name='reservation'),
+    path('reservations/<int:pk>/cancel/', v.cancel, name='cancel'),
+    path('kitchen/', v.kitchen, name='kitchen'),
+    path('kitchen/meals/new/', v.meal_edit, name='meal_new'),
+    path('kitchen/meals/<int:pk>/', v.operations, name='operations'),
+    path('kitchen/meals/<int:pk>/edit/', v.meal_edit, name='meal_edit'),
+    path('kitchen/meals/<int:pk>/action/<str:action>/', v.meal_action, name='meal_action'),
+    path('kitchen/meals/<int:pk>/surplus/', v.listing_edit, name='listing_edit'),
+    path('kitchen/meals/<int:pk>/reconcile/', v.reconcile, name='reconcile'),
+    path('kitchen/surplus/<int:pk>/withdraw/', v.withdraw, name='withdraw'),
+    path('kitchen/pickup/', v.pickup, name='pickup'),
+    path('reports/', v.reports, name='reports'),
+    path('administration/users/', v.users, name='users'),
+    path('administration/settings/', v.campus_settings, name='settings'),
+    path('administration/audit/', v.audit_history, name='audit'),
+]

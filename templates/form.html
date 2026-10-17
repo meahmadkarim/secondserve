@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<div class="narrow"><p class="eyebrow">SECOND SERVE / CAMPUS</p><h1 class="page-title">{{ title }}</h1><p class="lead">{{ intro }}</p><form method="post" class="card form-stack">{% csrf_token %}{{ form.as_p }}<button class="button">{{ button|default:'Save' }} <span aria-hidden="true">→</span></button></form></div>{% endblock %}
