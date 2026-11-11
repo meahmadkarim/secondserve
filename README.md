@@ -2,6 +2,10 @@
 
 **Plan better. Share surplus. Waste less.**
 
+Developed by Ahmad Karim. Repository: [meahmadkarim/secondserve](https://github.com/meahmadkarim/secondserve).
+
+Portfolio verification: all 52 Django tests passed, system checks reported no issues, and migration consistency checks found no changes during the November 2026 maintenance review. Documentation maintenance used AI assistance; this verification is not a claim of deployment or real-world impact.
+
 SecondServe is a functional Django hackathon prototype for a small, single-campus pilot. Students share meal intentions; kitchens use an explainable demand estimate, record preparation and normal servings, and offer suitable unserved portions for free collection. Administrators see recorded outcomes rather than invented carbon, water, or financial savings.
 
 The SolarPunk connection is practical: accessible technology supports community care, fair access to shared food, and more thoughtful resource use. There are no income labels, public rankings, or shaming.
@@ -185,3 +189,4 @@ Django hashes passwords and enforces sessions, CSRF, escaping, host validation, 
 The pickup throttle persists in SQLite per authenticated staff account: ten invalid codes within a five-minute window prevent further lookups until it expires. This is a lightweight pilot control, not a network-wide abuse protection system. Before a real deployment, add login throttling, operational monitoring, HTTPS, backups, account recovery and campus identity provisioning, a suitable deployment server, and a reviewed database/concurrency policy. Run `python manage.py check --deploy` with actual deployment settings. Set a random `DJANGO_SECRET_KEY`, turn debug off, configure exact hosts, run `collectstatic`, and serve static assets with the deployment server. Secure session/CSRF cookies are enabled when debug is off. Do not use Django runserver outside development. Audit logs are application records, not tamper-proof forensic storage.
 
 No email/SMS, payments, deliveries, hardware, face recognition, freshness detection, multiple campuses, or trained models are included. Practical future improvements: campus SSO, accessibility feedback from students, kitchen-approved destination categories, forecast calibration using ethically collected data, reminder opt-ins, pagination, and PostgreSQL load testing. These do not block the working campus prototype.
+
