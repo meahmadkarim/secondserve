@@ -190,3 +190,9 @@ The pickup throttle persists in SQLite per authenticated staff account: ten inva
 
 No email/SMS, payments, deliveries, hardware, face recognition, freshness detection, multiple campuses, or trained models are included. Practical future improvements: campus SSO, accessibility feedback from students, kitchen-approved destination categories, forecast calibration using ethically collected data, reminder opt-ins, pagination, and PostgreSQL load testing. These do not block the working campus prototype.
 
+
+## Technical implementation for reviewers
+
+**Django 5.2** supplies authentication, sessions, forms, ORM models, migrations and the test framework. **SQLite** stores meals, intentions, forecast snapshots, reservations and audit records. **Python service functions** enforce lifecycle rules and transactional inventory handling; Django templates with **HTML, CSS and JavaScript** provide the interface.
+
+Demand estimation is an explicit weighted formula over attending, unsure and unanswered intentions, followed by a buffer and capacity cap. It does not use scikit-learn, neural networks or a trained prediction model. This project demonstrates Python/web engineering alongside the portfolio's machine-learning projects.
